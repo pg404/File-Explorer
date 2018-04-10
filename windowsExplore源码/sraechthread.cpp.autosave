@@ -1,0 +1,42 @@
+﻿#include "sraechthread.h"
+
+SraechThread::SraechThread()
+{
+
+}
+
+void SearchThread::run()
+{
+    while(!stopped)
+    {
+        QStringList fileString;
+        QDir dir(getPath);
+        if (!dir.exists())
+        {
+            return;
+        }
+        QString searchText = ui->searchLineEdit->text();
+        QStringList nameFilter;
+        nameFilter<<"*"+searchText+"*";       //过滤规则
+        QDirIterator iter (path,nameFilter,QDir::Files|QDir::Dirs,QDirIterator::Subdirectories); //|QDir::NoSymLinks
+        while (iter.hasNext())
+        {
+    
+            QFileInfo info=iter.fileInfo();
+            if (info.isDir())
+            {
+                fileString.prepend(QStringLiteral("文件夹名:  ")+info.absoluteFilePath()+"\n");
+            }
+            else if(info.isFile())
+            {
+                fileString.append(QStringLiteral("文件名:  ")+info.fileName()+" \n"+QStringLiteral("路径:")+info.absoluteFilePath());
+            }
+            iter.next();
+        }
+    }
+}
+
+void SearchThread::stop()
+{
+    stopped = true;
+}

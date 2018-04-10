@@ -1,0 +1,20 @@
+﻿#ifndef SRAECHTHREAD_H
+#define SRAECHTHREAD_H
+#include <QString>
+#include <QDir>
+
+class SearchThread:public QThread
+{
+public:
+    SearchThread();
+
+protected:
+    void run();
+    void stop();
+
+private:
+    volatile bool stopped;
+    QString getPath;
+};
+
+#endif // SRAECHTHREAD_H

@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/new/icon">
+        <file>image/go_1.png</file>
+        <file>image/go_2.png</file>
+        <file>image/reload.png</file>
+        <file>image/shift_up.png</file>
+        <file>image/totop.png</file>
+        <file>image/back1.png</file>
+        <file>image/back2.png</file>
+        <file>image/shift_up1.png</file>
+        <file>image/shift_up2.png</file>
+        <file>image/search.png</file>
+        <file>image/showSearch.png</file>
+        <file>image/runicon.png</file>
+        <file>image/close.png</file>
+    </qresource>
+</RCC>
